@@ -17,7 +17,7 @@ group by id_guest
 order by rank asc;
 ```
 Output: <br>
-![image](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/d1a8746d-dc39-4066-a027-b5b040adafe6)
+![173831EC-8353-4934-AE2D-A5A4ED8D1FF6_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/419e0413-cec2-4bb0-8958-22e576100d21)
 
 ---
 
@@ -44,7 +44,7 @@ ORDER BY total_consumption DESC
 
 ```
 Output: <br>
-![image](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/1e135be2-82b8-44dd-8d0d-5f459ec3fc4b)
+![528C4B90-07BF-46E1-8657-9D2F356FFCA8_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/bebe4c60-57bb-470e-ba1d-dbdc21c7cb6a)
 
 ---
 
@@ -62,7 +62,7 @@ WHERE manager_id = 13 AND target IN (
 GROUP BY first_name, target;
 ```
 Output: <br>
-![image](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/08fbe2f5-644a-48c5-838c-e30ff0e7605a)
+![23652726-A957-4A12-B80D-72E49FA908CB_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/684d8cf6-ec4d-400a-81d0-0555d2abe833)
 
 ---
 
@@ -78,7 +78,7 @@ WHERE a.created_at - b.created_at between 0 and 7
 AND a.id != b.id;
 ```
 Output: <br>
-![image](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/57cbc7f9-0052-49dd-a7df-a5dcd4e35da5)
+![1B7F5939-DB67-4C63-BBFF-82303C9CAB1C_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/a573d6d7-98be-4c2e-b628-ab72a6138a34)
 
 ---
 
@@ -106,8 +106,7 @@ GROUP BY date
 
 Output:<br>
 
-![image](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/40794b16-1cad-44f6-9bf8-3f0768dae93e)
----
+![87F51D87-B74C-4422-9422-0EF1A109F996_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/28887cf9-76c9-4147-ab4a-d4e678254166)
 
 
 
