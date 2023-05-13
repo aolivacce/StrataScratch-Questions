@@ -108,6 +108,33 @@ Output:<br>
 
 ![87F51D87-B74C-4422-9422-0EF1A109F996_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/28887cf9-76c9-4147-ab4a-d4e678254166)
 
+### Level: Hard 
+**Yelp | Top 5 States With 5 Star Businesses** <br>
+[Question:](https://platform.stratascratch.com/coding/10046-top-5-states-with-5-star-businesses?code_type=1)Find the top 5 states with the most 5 star businesses. Output the state name along with the number of 5-star businesses and order records by the number of 5-star businesses in descending order. In case there are ties in the number of businesses, return all the unique states. If two states have the same result, sort them in alphabetical order.
+
+```ruby
+SELECT DISTINCT state, business_count
+FROM (
+    SELECT state, COUNT(business_id) AS business_count, RANK() OVER (ORDER BY COUNT(business_id) DESC) AS rank
+    FROM yelp_business
+    WHERE stars = 5
+    GROUP BY state
+) AS ranked
+WHERE rank <= 5
+ORDER BY business_count DESC;
+```
+Output: <br>
+![1B7F5939-DB67-4C63-BBFF-82303C9CAB1C_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/b2b1fe75-2ef6-45ac-af46-90d440fefa22)
+
+---
+
+
+
+
+
+
+
+
 
 
 
