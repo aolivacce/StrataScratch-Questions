@@ -128,6 +128,27 @@ Output: <br>
 
 ---
 
+**Microsoft | Premium vs Freemium** <br>
+[Question:](https://platform.stratascratch.com/coding/10300-premium-vs-freemium?code_type=1) Find the total number of downloads for paying and non-paying users by date. Include only records where non-paying customers have more downloads than paying customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads.
+
+```ruby
+SELECT dldata.date,
+SUM(CASE WHEN paying_customer = 'no' THEN downloads ELSE 0 END) AS freemium,
+SUM(CASE WHEN paying_customer = 'yes' THEN downloads ELSE 0 END) AS premium
+FROM ms_user_dimension AS u
+JOIN ms_acc_dimension AS acct ON u.acc_id = acct.acc_id
+JOIN ms_download_facts AS dldata ON u.user_id = dldata.user_id
+GROUP BY 1
+having sum(case when paying_customer = 'no' then downloads else 0 end ) > sum(case when paying_customer = 'yes' then downloads else 0 end )
+ORDER BY 1;
+```
+
+Output:<br>
+![1B7F5939-DB67-4C63-BBFF-82303C9CAB1C_4_5005_c](https://github.com/aolivacce/StrataScratch-Questions/assets/72052149/c9bfecb2-373e-400b-92d7-e16ff04a974a)
+
+
+
+
 
 
 
