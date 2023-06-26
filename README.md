@@ -8,7 +8,7 @@
 [Question:](https://platform.stratascratch.com/coding/10159-ranking-most-active-guests?code_type=1) Rank guests based on the number of messages they've exchanged with the hosts. Guests with the same number of messages as other guests should have the same rank. Do not skip rankings if the preceding rankings are identical.
 Output the rank, guest id, and number of total messages they've sent. Order by the highest number of total messages first.
 
-```ruby
+```sql
 SELECT dense_rank() OVER (ORDER BY sum(n_messages) DESC) AS rank, 
     id_guest,
     sum(n_messages)
@@ -24,7 +24,7 @@ Output: <br>
 **Meta/Facebook | Highest Energy Consumption** <br>
 [Question:](https://platform.stratascratch.com/coding/10064-highest-energy-consumption?code_type=1) Find the date with the highest total energy consumption from the Meta/Facebook data centers. Output the date along with the total energy consumption across all data centers.
 
-```ruby
+```sql
 WITH centers AS (
   SELECT * FROM fb_eu_energy
   UNION ALL
@@ -51,7 +51,7 @@ Output: <br>
 **Salesforce | Highest Target Under Manager** <br>
 [Question:](https://platform.stratascratch.com/coding/9905-highest-target-under-manager?code_type=1) Find the highest target achieved by the employee or employees who works under the manager id 13. Output the first name of the employee and target achieved. The solution should show the highest target achieved under manager_id=13 and which employee(s) achieved it.
 
-```ruby
+```sql
 SELECT first_name, MAX(target)
 FROM salesforce_employees
 WHERE manager_id = 13 AND target IN (
@@ -69,7 +69,7 @@ Output: <br>
 **Amazon | Finding User Purchases** <br>
 [Question:](https://platform.stratascratch.com/coding/10322-finding-user-purchases?code_type=1) Write a query that'll identify returning active users. A returning active user is a user that has made a second purchase within 7 days of any other of their purchases. Output a list of user_ids of these returning active users.
 
-```ruby
+```sql
 select DISTINCT (a.user_id)
 from amazon_transactions a
 JOIN amazon_transactions b 
@@ -90,7 +90,7 @@ What is the overall friend acceptance rate by date? Your output should have the 
 Assume that each friend request starts by a user sending (i.e., user_id_sender) a friend request to another user (i.e., user_id_receiver) that's logged in the table with action = 'sent'. If the request is accepted, the table logs action = 'accepted'. If the request is not accepted, no record of action = 'accepted' is logged.
 
 
-```ruby
+```sql
 WITH rate AS (
     SELECT date,
         action,
@@ -112,7 +112,7 @@ Output:<br>
 **Yelp | Top 5 States With 5 Star Businesses** <br>
 [Question: ](https://platform.stratascratch.com/coding/10046-top-5-states-with-5-star-businesses?code_type=1)Find the top 5 states with the most 5 star businesses. Output the state name along with the number of 5-star businesses and order records by the number of 5-star businesses in descending order. In case there are ties in the number of businesses, return all the unique states. If two states have the same result, sort them in alphabetical order.
 
-```ruby
+```sql
 SELECT DISTINCT state, business_count
 FROM (
     SELECT state, COUNT(business_id) AS business_count, RANK() OVER (ORDER BY COUNT(business_id) DESC) AS rank
@@ -131,7 +131,7 @@ Output: <br>
 **Microsoft | Premium vs Freemium** <br>
 [Question:](https://platform.stratascratch.com/coding/10300-premium-vs-freemium?code_type=1) Find the total number of downloads for paying and non-paying users by date. Include only records where non-paying customers have more downloads than paying customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads.
 
-```ruby
+```sql
 SELECT dldata.date,
 SUM(CASE WHEN paying_customer = 'no' THEN downloads ELSE 0 END) AS freemium,
 SUM(CASE WHEN paying_customer = 'yes' THEN downloads ELSE 0 END) AS premium
